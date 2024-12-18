@@ -1,0 +1,58 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+  
+      <form id="announcement-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="name">Announcement Title:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-control"
+              size="120"
+              max="120"
+              #name
+              ngModel
+              required>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="description">Announcement Description:</label>
+            <input
+              type="text"
+              id="description"
+              name="description"
+              class="form-control"
+              size="120"
+              max="255"
+              #description
+              ngModel
+              >
+              
+              
+          </div>
+        </div>
+  
+        
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="alert alert-danger" role="alert" *ngIf="!name">
+                    <p>The announcement title is required</p>
+                </div>
+            </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-xs-12 btn-toolbar">
+            <button class="btn btn-success" type="submit" [disabled]="!f.valid" >Save</button>
+            <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+          </div>
+        </div>
+  
+      </form>
+  
+    </div>
+  </div>
